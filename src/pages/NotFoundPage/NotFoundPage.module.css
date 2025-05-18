@@ -1,0 +1,13 @@
+.container {
+  text-align: center;
+  padding: 50px;
+  color: white;
+}
+
+.link {
+  margin-top: 20px;
+  display: inline-block;
+  text-decoration: none;
+  color: #00bfff;
+  font-weight: bold;
+}
