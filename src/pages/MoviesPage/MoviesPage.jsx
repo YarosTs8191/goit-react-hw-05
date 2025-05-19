@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { searchMovies } from "../../api/tmdb";
 import MovieList from "../../components/MovieList/MovieList";
 import toast, { Toaster } from "react-hot-toast";
+import css from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -41,12 +42,19 @@ const MoviesPage = () => {
   };
 
   return (
-    <main>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="query" placeholder="Search movies..." />
-        <button type="submit">Search</button>
+    <main className={css.container}>
+      <form className={css.form} onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="query"
+          placeholder="Search movies..."
+          className={css.input}
+        />
+        <button type="submit" className={css.button}>
+          Search
+        </button>
       </form>
-      {error && <p>{error}</p>}
+      {error && <p className={css.error}>{error}</p>}
       <MovieList movies={movies} />
       <Toaster position="top-right" />
     </main>

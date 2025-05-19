@@ -3,16 +3,26 @@
   gap: 20px;
   padding: 20px;
   background-color: #1e1e1e;
+  border-bottom: 1px solid #333;
+  justify-content: center;
 }
-
 .link {
-  color: white;
+  font-size: 1.1rem;
+  color: #ccc;
   text-decoration: none;
-  font-size: 20px;
+  font-weight: 500;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+  display: inline-block;
 }
 
-.active {
-  color: #00d8ff;
-  font-weight: bold;
-  text-decoration: underline;
+.link:hover {
+  color: #fff;
+  background-color: #333;
+}
+
+.link.active {
+  color: #09d138;
+  background-color: #222;
 }

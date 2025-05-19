@@ -7,6 +7,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { fetchMovieDetails } from "../../api/tmdb";
+import css from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -34,24 +35,26 @@ const MovieDetailsPage = () => {
   if (!movie) return <p>Loading...</p>;
 
   return (
-    <div>
-      <button onClick={() => navigate(backLink)}>Go back</button>
-      <h2>{movie.title}</h2>
-      <p>{movie.overview}</p>
+    <div className={css.container}>
+      <button className={css.goback} onClick={() => navigate(backLink)}>
+        Go back
+      </button>
+      <h2 className={css.title}> {movie.title}</h2>
+      <p className={css.text}> {movie.overview}</p>
       <img
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.title}
         width="250"
       />
       <h3>Additional Information</h3>
-      <ul>
+      <ul className={css.links}>
         <li>
-          <Link to="cast" state={{ from: backLink }}>
+          <Link className={css.link} to="cast" state={{ from: backLink }}>
             Cast
           </Link>
         </li>
         <li>
-          <Link to="reviews" state={{ from: backLink }}>
+          <Link className={css.link} to="reviews" state={{ from: backLink }}>
             Reviews
           </Link>
         </li>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchMovieCast } from "../../api/tmdb";
+import css from "./MovieCast.module.css";
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -23,11 +24,10 @@ const MovieCast = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
-      <h4>Cast</h4>
-      <ul>
+    <div className={css.container}>
+      <ul className={css.list}>
         {cast.map((actor) => (
-          <li key={actor.cast_id}>
+          <li className={css.card} key={actor.cast_id}>
             {actor.profile_path && (
               <img
                 src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
@@ -35,8 +35,8 @@ const MovieCast = () => {
                 width="80"
               />
             )}
-            <p>{actor.name}</p>
-            <p>as {actor.character}</p>
+            <p className={css.name}>{actor.name}</p>
+            <p className={css.character}>as {actor.character}</p>
           </li>
         ))}
       </ul>

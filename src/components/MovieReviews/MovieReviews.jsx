@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchMovieReviews } from "../../api/tmdb";
+import css from "./MovieReviews.module.css";
 
 const MovieReviews = () => {
   const { movieId } = useParams();
@@ -23,12 +24,11 @@ const MovieReviews = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
-      <h4>Reviews</h4>
+    <div className={css.container}>
       {reviews.length === 0 ? (
         <p>No reviews found.</p>
       ) : (
-        <ul>
+        <ul className={css.list}>
           {reviews.map((review) => (
             <li key={review.id}>
               <p>
